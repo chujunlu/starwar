@@ -19,9 +19,15 @@ export default class BasicInfo extends React.Component {
 
   render() {
     const { name, starWarsPeople } = this.props;
-    if (!starWarsPeople) return null;
-    const person = this.findPerson(name, starWarsPeople);
+    if (!starWarsPeople) {
+      return (
+        <div>
+          <p>Could not fetch API</p>
+        </div>
+      );
+    }
 
+    const person = this.findPerson(name, starWarsPeople);
     if (person) {
       document.title = name;
 
